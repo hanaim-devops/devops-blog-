@@ -1,10 +1,17 @@
 # Devops blog
 
 Schrijf je devops blog in het bestand `src/dev-blog-name-in-kebab-case/README.md`.
+Schrijf je onderzoeksplan in `src/onderzoeksplan.md`
 
-Om te testen hoe je blog eruit testen binnen [mdbook](https://rust-lang.github.io/mdBook/) zonder zelf mdbook te installeren kun je bijgevoegde Docker file genbruiken.
+Om te testen hoe je blog eruit testen binnen [mdbook](https://rust-lang.github.io/mdBook/) zonder zelf mdbook te installeren kun je bijgevoegde Docker file gebruiken.
 
-Zorg dus dat je Docker hebt geinstalleerd , bijvoorbeeld via [Docker Desktop voor Windows](https://docs.docker.com/desktop/install/windows-install/) of macOS. En dan run je:
+Zorg dus dat je Docker hebt geinstalleerd, bijvoorbeeld via [Docker Desktop voor Windows](https://docs.docker.com/desktop/install/windows-install/) of macOS. Voor het gemak is er ook een bash script `build`. Deze moet je wellicht eenmalig `chmod +x mdbook-build`. En run je daarna met:
+
+```console
+./build
+```
+
+Of als je zelf Docker wilt gebruiken dan run je:
 
 ```console
 docker build -t devops-blog-image .

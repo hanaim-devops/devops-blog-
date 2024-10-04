@@ -1,19 +1,10 @@
 #!/bin/sh
 
-# Haal de Git versie en laatste update op
-GITHUB_REF="${GITHUB_REF:-}"
-versie="$(git describe HEAD --tags)"
-laatsteUpdate="$(git --no-pager log -1 --format=tformat:%cd --date=human)"
-
 # Stop en verwijder eventueel bestaande container
 docker rm -f devops-blog-container || true
 
 # Voer de Docker build uit met build argumenten voor versie en laatste update
-docker build \
-  --build-arg GITHUB_REF="${GITHUB_REF}" \
-  --build-arg GIT_VERSION="${versie}" \
-  --build-arg LAST_UPDATE="${laatsteUpdate}" \
-  -t devops-image:latest .
+docker build -t devops-blog-image:latest .
 
 # Start een nieuwe container vanuit de gegenereerde Docker image
 docker run --name devops-blog-container -d -p 8081:80 devops-blog-image

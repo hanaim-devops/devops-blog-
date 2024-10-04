@@ -1,4 +1,4 @@
 # Summary
 
-- [Chapter 1](./chapter_1.md)
-- [Les 2 - ORM (EF core) (DevOps)](./les-2-orm-en-adr.md)
+- [Dev blog](./dev-blog-name-in-kebab-case/README.md)
+- [Onderzoeksplan](./onderzoeksplan.md)
