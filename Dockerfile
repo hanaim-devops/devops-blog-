@@ -2,11 +2,11 @@
 # Zie: https://hub.docker.com/_/nginx
 FROM rust:1.81.0 AS builder
 
-# Install mdbook and necessary preprocessors
+# Install mdbook
 RUN cargo install mdbook --version 0.4.40
 
 # Install necessary mdbook preprocessors
-RUN cargo install mdbook-kroki-preprocessor
+RUN cargo install mdbook-linkcheck --locked --version 0.7.7
 
 # Set the working directory
 WORKDIR /book
@@ -19,9 +19,6 @@ RUN mdbook build
 
 # Stage 2: NGINX container to serve the built book
 FROM nginx:1.27.1-alpine
-
-# Copy the custom NGINX configuration
-# COPY custom-nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy the built book from the build container to NGINX's web root
 COPY --from=builder /book/book /usr/share/nginx/html
