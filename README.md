@@ -22,3 +22,23 @@ docker run --name devops-blog-container -d -p 8081:80 devops-blog-image
 # docker stop devops-blog-container
 # docker rm devops-blog-container
 ```
+
+## Fix mdbook issue
+
+In de op vrijdag 4 oktober verspreide versie zat helaas nog een bug waardoor de mdbook build niet goed werkte. Althans je kreeg de standaar Nginx pagina te zien op `https://localhost:8081` in plaats van de gehoopte mdbook landingspagina.
+
+```console
+git remote add origin2 git@github.com:hanaim-devops/devops-blog.git
+git fetch origin2
+git cherry-pick 3a497635ff3c2285bbfbffa4cd30b8934b6b2b1c
+
+# Eventueel kun je de 2e origin ook weer verwijderen
+# Dan verwart dit je ook niet meer.
+# Maar wellicht komt er nog een update, maar dan kun je hem ook weer opnieuw toevoegen
+#git remote rm origin2
+#
+# Je zou ook nog kunnen prunen als een soort 'git unfetch' (die niet bestaat, maar de git fetch is wel eventjes bezig, dus er is wel weer wat data bijgekomen)
+# Maar dit lijkt niet veel te doen, en ChatGPT heeft verder ook geen suggesties.
+#git gc --prune=now
+# Bron: https://chatgpt.com/c/6704d70a-8318-8012-9e1c-1dbe285e2661
+```
