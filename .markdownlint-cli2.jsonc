@@ -1,0 +1,12 @@
+{
+  "gitignore": true,
+  "customRules": ["custom-rules.js"],
+  "config": {
+    "MD013": false,
+    "MD033": false,
+    "MD041": false,
+    "MD026": {
+      "punctuation": ""
+    }
+  }
+}

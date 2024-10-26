@@ -1,0 +1,8 @@
+{
+    "markdownlint.customRules": [
+        "./custom-rules.js"
+    ],
+    "markdownlint.config": {
+
+    }
+}

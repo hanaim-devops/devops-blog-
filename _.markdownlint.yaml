@@ -1,0 +1,12 @@
+---
+# Negeer bij het linten alle bestanden/paden die ook in de .gitignore staan.
+# Zie https://github.com/DavidAnson/markdownlint-cli2?tab=readme-ov-file#markdownlint-cli2jsonc
+gitignore: true
+
+# De ingestelde ignore regels zijn:
+MD013: false
+MD033: false
+#MD014: false
+MD041: false
+MD026:
+  punctuation: ""
